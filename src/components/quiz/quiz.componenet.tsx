@@ -49,6 +49,7 @@ const questions = [
 const Quiz: React.FC = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
+  const [endOfQuestions, setEndOfQuestions] = useState(false);
 
   const checkAnswer = (answer: string) => {
     if (answer === questions[currentQuestion].answer) {
@@ -58,17 +59,20 @@ const Quiz: React.FC = () => {
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
+    } else {
+      setEndOfQuestions(true);
     }
   };
 
   return (
     <>
       <Header />
-      <p className="question-number-indicator">
-        Current Question: {currentQuestion + 1}/ {questions.length}
-      </p>
-
-      {currentQuestion < questions.length - 1 ? (
+      {!endOfQuestions ? (
+        <p className="question-number-indicator">
+          Current Question: {currentQuestion + 1}/{questions.length}
+        </p>
+      ) : null}
+      {!endOfQuestions ? (
         <div className="quiz-container">
           <Question
             id={questions[currentQuestion].id}
@@ -80,7 +84,7 @@ const Quiz: React.FC = () => {
       ) : (
         <div className="quiz-container">
           <p className="end-alert">End of Questions</p>
-          <span className="score-display">Your Score is : {score} "</span>
+          <span className="score-display">Your Score is: {score}</span>
         </div>
       )}
     </>
