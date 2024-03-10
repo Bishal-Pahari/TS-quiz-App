@@ -1,30 +1,15 @@
-# React + TypeScript + Vite
+# Introduction
+Quiz App made using React+Typescript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Installation
+- Clone the repository from GitHub.
+- Navigate to the project directory in your terminal.
+- Run  `npm install` to install dependencies.
+- Start the development server using `npm run dev`.
 
-Currently, two official plugins are available:
+# Logic
+The logic of the Quiz app involves initializing state variables to manage the current question index, user's score, and quiz completion status. Questions are rendered sequentially using the `Question` component, with user responses handled by the `checkAnswer` function. Upon selecting an answer, it is compared to the correct answer, and if correct, the score is incremented and the next question is displayed. Progress feedback is optionally provided, and upon answering all questions, the final score is displayed along with an end-of-quiz message.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Screenshot
+![Macbook-Air-localhost](https://github.com/Bishal-Pahari/TS-quiz-App/assets/61013432/38d8ed20-2796-4597-9bee-ccba690c2f01)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
